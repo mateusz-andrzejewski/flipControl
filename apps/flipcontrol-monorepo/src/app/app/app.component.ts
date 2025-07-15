@@ -1,28 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { collection, Firestore, getDocs } from '@angular/fire/firestore';
 import { Auth, signInAnonymously } from '@angular/fire/auth';
-import { AsyncPipe, JsonPipe, NgIf } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { MatButton } from '@angular/material/button';
-import { MatBadge } from '@angular/material/badge';
-import { MatDialogActions, MatDialogClose, MatDialogContent } from '@angular/material/dialog';
-import { MatFormField, MatInput, MatLabel } from '@angular/material/input';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    JsonPipe,
-    AsyncPipe,
-    MatButton,
-    MatBadge,
-    MatDialogContent,
-    MatFormField,
-    MatLabel,
-    MatInput,
-    MatDialogActions,
-    MatDialogClose,
-  ],
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
