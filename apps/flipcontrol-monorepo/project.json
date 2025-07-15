@@ -1,0 +1,96 @@
+{
+  "name": "flipcontrol-monorepo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "app",
+  "sourceRoot": "apps/flipcontrol-monorepo/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular/build:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/flipcontrol-monorepo",
+        "browser": "apps/flipcontrol-monorepo/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/flipcontrol-monorepo/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          {
+            "glob": "**/*",
+            "input": "apps/flipcontrol-monorepo/public"
+          }
+        ],
+        "styles": ["apps/flipcontrol-monorepo/src/styles.scss"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "fileReplacements": [
+            {
+              "replace": "apps/flipcontrol-monorepo/src/environments/environment.ts",
+              "with": "apps/flipcontrol-monorepo/src/environments/environment.firebase.ts"
+            }
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@angular/build:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "flipcontrol-monorepo:build:production"
+        },
+        "development": {
+          "buildTarget": "flipcontrol-monorepo:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular/build:extract-i18n",
+      "options": {
+        "buildTarget": "flipcontrol-monorepo:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/flipcontrol-monorepo/jest.config.ts"
+      }
+    },
+    "serve-static": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "flipcontrol-monorepo:build",
+        "port": 4200,
+        "staticFilePath": "dist/apps/flipcontrol-monorepo/browser",
+        "spa": true
+      }
+    }
+  }
+}

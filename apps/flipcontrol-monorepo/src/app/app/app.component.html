@@ -1,0 +1,41 @@
+<!-- apps/flipcontrol-monorepo/src/app/app/app.component.html -->
+<div class="p-6">
+  <h1 class="text-3xl font-bold text-blue-700">FlipControl działa! 🎉</h1>
+
+  <!-- Tailwind test -->
+  <div class="mt-4 p-4 rounded-lg bg-green-100 text-green-800">
+    Jeśli widzisz ten tekst na zielonym tle, Tailwind działa!
+  </div>
+
+  <!-- Angular Material test -->
+  <button mat-raised-button color="primary" class="mt-4">Test Material Button</button>
+
+  <!-- NgRx test -->
+  <ng-container *ngIf="store$ | async as state">
+    <div class="mt-4 text-sm">
+      <strong>NgRx Store snapshot:</strong>
+      <pre>{{ state | json }}</pre>
+    </div>
+  </ng-container>
+</div>
+<div class="test-tailwind">Tailwind apply test</div>
+<p class="m-5">tst</p>
+<div class="bg-red-500 text-white p-4 uppercase">Tailwind RAW test</div>
+<div class="demo-section">
+  Button toggles badge visibility
+  <button matButton="elevated" matBadge="7" [matBadgeHidden]="true">
+    Hide
+  </button>
+</div>
+<h2 mat-dialog-title>Hi</h2>
+<mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button matButton>No Thanks</button>
+  <button matButton cdkFocusInitial>Ok</button>
+</mat-dialog-actions>
