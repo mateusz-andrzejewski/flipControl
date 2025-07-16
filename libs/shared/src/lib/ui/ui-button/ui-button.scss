@@ -1,0 +1,69 @@
+$primary: #FF5A5F;
+$primary-hover: #e04850;
+$secondary: #484848;
+$secondary-hover: #232323;
+$success: #008A05;
+$success-hover: #006804;
+$warning: #FFB400;
+$warning-hover: #e0a100;
+$danger: #FF5A5F;
+$danger-hover: #e04850;
+$info: #00A699;
+$info-hover: #00897b;
+:host {
+  .btn-primary {
+    @apply text-white;
+    background-color: $primary;
+
+    &:hover {
+      background-color: $primary-hover;
+    }
+  }
+
+  .btn-secondary {
+    @apply text-white;
+    background-color: $secondary;
+
+    &:hover {
+      background-color: $secondary-hover;
+    }
+  }
+
+  .btn-success {
+    @apply text-white;
+    background-color: $success;
+
+    &:hover {
+      background-color: $success-hover;
+    }
+  }
+
+  .btn-warning {
+    @apply text-black;
+    background-color: $warning;
+
+    &:hover {
+      background-color: $warning-hover;
+    }
+  }
+
+  .btn-danger {
+    @apply text-white;
+    background-color: $danger;
+
+    &:hover {
+      background-color: $danger-hover;
+    }
+  }
+
+  .btn-info {
+    @apply text-white;
+    background-color: $info;
+
+    &:hover {
+      background-color: $info-hover;
+    }
+  }
+}
+
+

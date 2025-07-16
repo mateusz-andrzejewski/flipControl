@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@flipcontrol-monorepo/auth": ["libs/feature/src/index.ts"]
+      "@flipcontrol-monorepo/auth": ["libs/feature/src/index.ts"],
+      "@flipcontrol-monorepo/ui": ["libs/shared/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

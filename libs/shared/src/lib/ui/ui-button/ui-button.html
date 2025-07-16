@@ -1,0 +1,21 @@
+@switch (variant()) {
+  @case (buttonVariant.FILLED) {
+    <button
+      matButton="filled"
+      [disabled]="disabled()"
+      [ngClass]="['btn-' + severity()]"
+    >
+      @if (!loading()) {
+        <ng-content>
+
+        </ng-content>
+      } @else {
+        <mat-progress-spinner diameter="20" mode="indeterminate"></mat-progress-spinner>
+      }
+
+    </button>
+  }
+  @default {
+
+  }
+}
